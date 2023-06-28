@@ -27,18 +27,18 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainScreen() {
-    val greetingListState = remember{mutableStateListOf<String>("John", "Amanda")}
+    val greetingListState = remember { mutableStateListOf<String>("John", "Amanda") }
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.SpaceEvenly,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-            GreetingList(greetingListState, { greetingListState.add("Prahlad") })
+        GreetingList(greetingListState) { greetingListState.add("Prahlad") }
     }
 }
 
 @Composable
-fun GreetingList(namesList: List<String>, buttonClick: () -> Unit){
+fun GreetingList(namesList: List<String>, buttonClick: () -> Unit) {
     for (name in namesList) {
         Greeting(name)
     }
